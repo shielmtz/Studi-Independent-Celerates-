@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fee799;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      max-width: 400px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .bank-option {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .bank-option.selected {
+      border-color: #fbb034;
+      background-color: #fff3cd;
+    }
+    .upload-section {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .upload-section.active {
+      border-color: #fbb034;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #fff;
+    }
+    .btn.cancel {
+      background-color: #555;
+    }
+    .btn.confirm {
+      background-color: #fbb034;
+    }
+    .btn:hover {
+      opacity: 0.8;
+    }
+    .info {
+      background-color: #fff3cd;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="title">Selesaikan Pembayaran</h2>
+
+    <!-- Pilihan Bank -->
+    <div>
+      <div class="bank-option" onclick="selectBank('Mandiri')">Mandiri</div>
+      <div class="bank-option" onclick="selectBank('Bank BTN')">Bank BTN</div>
+      <div class="bank-option" onclick="selectBank('BCA')">BCA</div>
+    </div>
+
+    <!-- Informasi Rekening -->
+    <div class="info">
+      <p>Nomor Rekening: <strong>4801610027808</strong></p>
+      <p>Nama: <strong>Shila M.</strong></p>
+    </div>
+
+    <!-- Upload Bukti Pembayaran -->
+    <div id="upload-section" class="upload-section" onclick="triggerFileUpload()">
+      <p id="upload-message">Click here to upload or drop media here</p>
+      <input type="file" id="file-input" style="display: none;" onchange="handleFileUpload(event)">
+    </div>
+
+    <!-- Tombol Aksi -->
+    <div class="actions">
+      <button class="btn cancel" onclick="cancelPayment()">Batal</button>
+      <button class="btn confirm" onclick="confirmPayment()">Konfirmasi</button>
+    </div>
+  </div>
+
+  <script src="payment.js"></script>
+</body>
+</html>

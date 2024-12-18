@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fee799;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #fbb034;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #ffa500;
+    }
+    .form-container .message {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .form-container .link {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #fbb034;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .form-container .link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container" id="form-container">
+    <!-- Login Form -->
+    <div id="login-form">
+      <h2>Login</h2>
+      <form>
+        <input type="email" id="login-email" placeholder="Masukkan Email" required>
+        <input type="password" id="login-password" placeholder="Masukkan Password" required>
+        <button type="button" onclick="handleLogin()">Login</button>
+        <p class="message" id="login-message"></p>
+      </form>
+      <a class="link" onclick="showSignUp()">Sign Up</a> | 
+      <a class="link" onclick="forgotPassword()">Lupa Password?</a>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signup-form" style="display: none;">
+      <h2>Sign Up</h2>
+      <form>
+        <input type="email" id="signup-email" placeholder="Masukkan Email" required>
+        <input type="password" id="signup-password" placeholder="Masukkan Password" required>
+        <button type="button" onclick="handleSignUp()">Sign Up</button>
+        <p class="message" id="signup-message"></p>
+      </form>
+      <a class="link" onclick="showLogin()">Kembali ke Login</a>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div id="forgot-password-form" style="display: none;">
+      <h2>Lupa Password</h2>
+      <form>
+        <input type="email" id="forgot-password-email" placeholder="Masukkan Email" required>
+        <button type="button" onclick="handleForgotPassword()">Kirim</button>
+        <p class="message" id="forgot-password-message"></p>
+      </form>
+      <a class="link" onclick="showLogin()">Kembali ke Login</a>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>
+
